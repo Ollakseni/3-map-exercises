@@ -41,8 +41,15 @@ public class PostalCodesMain {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Input postal code or district (e.g., 00100 or Helsinki): ");
         String answer = scanner.nextLine(); // answer may be a postal code or a postal district name
-
-        // TODO: Implement your logic here
+        if (postalCodes.containsKey(answer)) {
+            System.out.println(postalCodes.get(answer));
+        } else {
+            postalCodes.entrySet().stream()
+                    .filter(entry -> entry.getValue().equalsIgnoreCase(answer))
+                    .map(Map.Entry::getKey)
+                    .sorted()
+                    .forEach(System.out::println);
+        }
 
         scanner.close();
     }
