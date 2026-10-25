@@ -91,9 +91,9 @@ public class MapBasics {
      */
     public boolean hasValue(Map<String, String> map, String value) {
         if (map.containsValue(value)) {
-            return false;
-        } else {
             return true;
+        } else {
+            return false;
         }
     }
 
